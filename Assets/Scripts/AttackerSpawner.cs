@@ -10,11 +10,11 @@ public class AttackerSpawner : MonoBehaviour
 
     [SerializeField] Attacker typeOfAttackerToSpawn;
     [SerializeField] int numberAttackersPerWave;
-    [SerializeField] float minimumSpawningTime = 0.5f;
-    [SerializeField] float maximumSpawningTime = 2f;
+    [SerializeField] float minimumSpawningTime = 0.4f;
+    [SerializeField] float maximumSpawningTime = 1f;
     [SerializeField] int timeBetweenWaves;
 
-    private float deltaYPos = 0.5f;
+    private float deltaYPos = 0.3f;
 
 
     IEnumerator Start()
@@ -29,7 +29,7 @@ public class AttackerSpawner : MonoBehaviour
 
     private void SpawnAttacker()
     {
-        Instantiate(typeOfAttackerToSpawn, new Vector2(transform.position.x, Mathf.Round(UnityEngine.Random.Range(1f, 5f))+ deltaYPos), transform.rotation);
+        Instantiate(typeOfAttackerToSpawn, new Vector2(transform.position.x, Mathf.Round(UnityEngine.Random.Range(minimumSpawningTime, maximumSpawningTime))+ deltaYPos), transform.rotation);
     }
 
 }

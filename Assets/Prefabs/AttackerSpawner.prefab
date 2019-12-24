@@ -47,6 +47,6 @@ MonoBehaviour:
   typeOfAttackerToSpawn: {fileID: 4819906381346562768, guid: 90212580ce9b23948a7364c10f3aa527,
     type: 3}
   numberAttackersPerWave: 5
-  minimumSpawningTime: 1
-  maximumSpawningTime: 5
+  minimumSpawningTime: 0.5
+  maximumSpawningTime: 2
   timeBetweenWaves: 2
