@@ -94,6 +94,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b3885b77566ef64b8ee03b7ac1d07fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damagePoints: 50
+  weaponSpeed: 5
 --- !u!61 &1711610849
 BoxCollider2D:
   m_ObjectHideFlags: 0
