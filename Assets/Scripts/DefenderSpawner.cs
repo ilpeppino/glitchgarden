@@ -27,16 +27,23 @@ public class DefenderSpawner : MonoBehaviour
         Vector2 clickMousePosition = Input.mousePosition;
 
         // https://docs.unity3d.com/2018.4/Documentation/ScriptReference/Camera.ScreenToWorldPoint.html
-        Vector2 worldPosition = Camera.main.ScreenToWorldPoint(clickMousePosition);
-
-        return worldPosition;
+        Vector2 roundedPos = Camera.main.ScreenToWorldPoint(clickMousePosition);
+        Vector2 gridPosition = SnapDefenderToGrid(roundedPos);
+        return gridPosition;
     }
 
-    private void SpawnDefender(Vector2 positionInWorldUnits)
+    private Vector2 SnapDefenderToGrid(Vector2 defenderPositionInScreenPoints)
+    {
+        float xPosInWorldPoints = Mathf.RoundToInt(defenderPositionInScreenPoints.x);
+        float yPosInWorldPoints = Mathf.RoundToInt(defenderPositionInScreenPoints.y);
+        return new Vector2(xPosInWorldPoints, yPosInWorldPoints);
+    }
+
+    private void SpawnDefender(Vector2 roundedPos)
 
     {
         // as GameObject at the end allows to see the instances in the hierarchy
         // transform.position is the position of the GameManagement game object
-        GameObject newDefender = Instantiate(defender, positionInWorldUnits, Quaternion.identity) as GameObject;
+        GameObject newDefender = Instantiate(defender, roundedPos, Quaternion.identity) as GameObject;
     }
 }
