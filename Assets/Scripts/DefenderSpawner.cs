@@ -12,7 +12,7 @@ using UnityEngine;
 public class DefenderSpawner : MonoBehaviour
 {
 
-    [SerializeField] GameObject defender;
+    Defender defender;
 
     private void OnMouseDown()
     {
@@ -21,6 +21,12 @@ public class DefenderSpawner : MonoBehaviour
         SpawnDefender(positionInWorldUnits);
 
     }
+
+    public void SetSelectedDefender(Defender defenderToSelect)
+    {
+        defender = defenderToSelect;
+    }
+
 
     private Vector2 GetSquareClicked()
     {
@@ -44,6 +50,6 @@ public class DefenderSpawner : MonoBehaviour
     {
         // as GameObject at the end allows to see the instances in the hierarchy
         // transform.position is the position of the GameManagement game object
-        GameObject newDefender = Instantiate(defender, roundedPos, Quaternion.identity) as GameObject;
+        Defender newDefender = Instantiate(defender, roundedPos, Quaternion.identity);
     }
 }

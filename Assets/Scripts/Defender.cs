@@ -6,7 +6,7 @@ public class Defender : MonoBehaviour
 {
 
     [SerializeField] GameObject defenderWeapon, defenderGun;
-
+    [SerializeField] int costStar = 100;
 
 
     public void Shoot()
