@@ -9,10 +9,9 @@ public class AttackerSpawner : MonoBehaviour
     [SerializeField] bool canSpawn = true;
 
     [SerializeField] Attacker typeOfAttackerToSpawn;
-    [SerializeField] int numberAttackersPerWave;
     [SerializeField] float minimumSpawningTime = 0.4f;
     [SerializeField] float maximumSpawningTime = 1f;
-    [SerializeField] int timeBetweenWaves;
+
 
     private float deltaYPos = 0.3f;
 
@@ -29,7 +28,16 @@ public class AttackerSpawner : MonoBehaviour
 
     private void SpawnAttacker()
     {
-        Instantiate(typeOfAttackerToSpawn, new Vector2(transform.position.x, Mathf.Round(UnityEngine.Random.Range(minimumSpawningTime, maximumSpawningTime))+ deltaYPos), transform.rotation);
+
+        Attacker newAttacker = Instantiate(
+            typeOfAttackerToSpawn, 
+            new Vector2(transform.position.x, 
+            Mathf.Round(UnityEngine.Random.Range(1, 6))+ deltaYPos), 
+            transform.rotation) 
+            as Attacker;
+
+        // when attacker are spawn, they will be instantiate under the parent (lane)
+        newAttacker.transform.parent = transform;
     }
 
 }

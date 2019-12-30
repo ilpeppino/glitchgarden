@@ -5,7 +5,7 @@ using UnityEngine;
 /************************************************
  * USED BY
  * 
- * Scripts/GamaManagement.cs
+ * Scripts/GameManagement.cs
  * 
  * **********************************************/
 
@@ -13,18 +13,28 @@ public class DefenderSpawner : MonoBehaviour
 {
 
     Defender defender;
+    int costDefender = 100;
+
+    public void SetSelectedDefender(Defender defenderToSelect)
+    {
+        defender = defenderToSelect;
+    }
 
     private void OnMouseDown()
     {
 
         Vector2 positionInWorldUnits = GetSquareClicked();
-        SpawnDefender(positionInWorldUnits);
+        CheckIfDefenderCanBeSpawn(positionInWorldUnits);
 
     }
 
-    public void SetSelectedDefender(Defender defenderToSelect)
+    private void CheckIfDefenderCanBeSpawn(Vector2 positionInWorldUnits)
     {
-        defender = defenderToSelect;
+        StarManager starManager = FindObjectOfType<StarManager>();
+        if (starManager.GetCurrentNumberOfStars() >= costDefender)
+        {
+            SpawnDefender(positionInWorldUnits);
+        }
     }
 
 
@@ -51,5 +61,6 @@ public class DefenderSpawner : MonoBehaviour
         // as GameObject at the end allows to see the instances in the hierarchy
         // transform.position is the position of the GameManagement game object
         Defender newDefender = Instantiate(defender, roundedPos, Quaternion.identity);
+        defender.SpendStars(costDefender);
     }
 }

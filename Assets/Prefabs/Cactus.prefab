@@ -116,6 +116,7 @@ MonoBehaviour:
   defenderWeapon: {fileID: 3861767766836575547, guid: 72de748f6348b0a43b2620f5bb6117a2,
     type: 3}
   defenderGun: {fileID: 7605345567667403390}
+  costDefender: 3
 --- !u!1 &7605345567667403390
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +172,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7605345568369870042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.139636, y: 3.3641305, z: -0.048860587}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5683749089361176799}
@@ -192,3 +193,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defenderWeapon: {fileID: 0}
   defenderGun: {fileID: 0}
+  costDefender: 100

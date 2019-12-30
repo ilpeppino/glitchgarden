@@ -6,7 +6,6 @@ public class Defender : MonoBehaviour
 {
 
     [SerializeField] GameObject defenderWeapon, defenderGun;
-    [SerializeField] int costStar = 100;
 
 
     public void Shoot()
@@ -14,4 +13,18 @@ public class Defender : MonoBehaviour
         Instantiate(defenderWeapon, defenderGun.transform.position, transform.rotation);
         return;
     }
+
+    public void AddStars(int amount)
+    {
+        FindObjectOfType<StarManager>().AddStars(amount);
+        Debug.Log("Caller Defender.cs - AddStars method");
+    }
+
+    public void SpendStars(int amount)
+    {
+        FindObjectOfType<StarManager>().SpendStars(amount);
+        Debug.Log("Caller Defender.cs - SpendStars method");
+    }
+
+
 }
